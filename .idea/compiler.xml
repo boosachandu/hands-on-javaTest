@@ -7,6 +7,8 @@
     <bytecodeTargetLevel>
       <module name="finlib-java-library_main" target="1.8" />
       <module name="finlib-java-library_test" target="1.8" />
+      <module name="hands-on-java_main" target="1.8" />
+      <module name="hands-on-java_test" target="1.8" />
       <module name="hands-on_main" target="1.8" />
       <module name="hands-on_test" target="1.8" />
       <module name="hands_main" target="1.8" />
