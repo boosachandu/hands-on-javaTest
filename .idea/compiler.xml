@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="finlib-java-library_main" target="1.8" />
+      <module name="finlib-java-library_test" target="1.8" />
+      <module name="hands-on_main" target="1.8" />
+      <module name="hands-on_test" target="1.8" />
+      <module name="hands_main" target="1.8" />
+      <module name="hands_test" target="1.8" />
+      <module name="handss_main" target="1.8" />
+      <module name="handss_test" target="1.8" />
+      <module name="hNS_main" target="1.8" />
+      <module name="hNS_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
