@@ -94,13 +94,13 @@ jacocoTestReport {
     }
 }
 
-test{
+/*test{
     systemProperty("logback.configurationFile", "logback-test.xml")
     testLogging.showStandardStreams = true
     useJUnit{
         excludeCategories ''
     }
-}
+}*/
 task allTests(type: Test){
 
 }
