@@ -23,22 +23,23 @@ public class SingletonTester {
        // System.out.println("Instance 2 hash:" + instance2.hashCode());
     }
 
-    @Test
-    public  void reflectionProofFailureTest() {
+
+    @Test(expected = Exception.class)
+    public  void reflectionProofFailureTest() throws Exception {
         //Create the 1st instance
         SingletonClass instance1 = SingletonClass.getInstance();
 
         //Create 2nd instance using Java Reflection API.
         SingletonClass instance2 = null;
-        try {
+       // try {
             Class<SingletonClass> clazz = SingletonClass.class;
             Constructor<SingletonClass> cons = clazz.getDeclaredConstructor();
             cons.setAccessible(true);
             instance2 = cons.newInstance();
-        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException |
+       /* } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException |
                 InstantiationException e) {
-            e.printStackTrace();
-        }
+           // e.printStackTrace();
+        }*/
 
         //now lets check the hash key.
        // System.out.println("Instance 1 hash:" + instance1.hashCode());
@@ -71,6 +72,7 @@ public class SingletonTester {
         t2.start();
     }
 
+    //For Singleton most of the time Serialization not required
     @Test
     public  void serializationTest() {
         try {
@@ -95,5 +97,21 @@ public class SingletonTester {
 
     }
 
+    //clone not required
+    @Test
+    public  void cloneableTest() {
+        try {
+            SingletonClass instance1 = SingletonClass.getInstance();
 
+            SingletonClass instance2 = (SingletonClass)instance1.clone();
+
+
+            System.out.println("instance1 hashCode=" + instance1.hashCode());
+            System.out.println("instance2 hashCode=" + instance2.hashCode());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

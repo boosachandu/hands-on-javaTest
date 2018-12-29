@@ -1,6 +1,8 @@
 package com.core;
 
-public class SingletonClass {
+import java.io.Serializable;
+
+public class SingletonClass extends Super implements Serializable,Cloneable{
     //  eager initialization causes memory leaks
     //  eager initialization
     //private static volatile SingletonClass sSoleInstance = new SingletonClass();
@@ -42,8 +44,23 @@ public class SingletonClass {
         return sSoleInstance;
     }
 
+  /*  //Make singleton from serialize and deserialize operation.
+    //For Singleton most of the time Serialization not required
+    protected SingletonClass readResolve(){
+        return getInstance();
+    }*/
+
     //Make singleton from serialize and deserialize operation.
-    protected SingletonClass readResolve() {
+    //For Singleton most of the time Serialization not required
+    protected Object readResolve() {
         return getInstance();
     }
+
+     @Override
+    protected Object clone() throws CloneNotSupportedException {
+         super.clone();
+        return getInstance();
+         // return new CloneNotSupportedException();
+       //  return super.clone();
+     }
 }
