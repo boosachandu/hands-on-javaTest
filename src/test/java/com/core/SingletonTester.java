@@ -5,22 +5,24 @@ import org.junit.Test;
 
 import java.io.*;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import java.util.logging.Logger;
 
 public class SingletonTester {
+    private static java.util.logging.Logger m_logger = Logger.getLogger(SingletonTester.class.getName());
+
 
     @Test
     public  void doubleCheckTest() {
         //Instance 1
-        SingletonClass instance1 = SingletonClass.getInstance();
+        com.core.SingletonClass instance1 = SingletonClass.getInstance();
 
         //Instance 2
         SingletonClass instance2 = SingletonClass.getInstance();
 
         //now lets check the hash key.
+        m_logger.info("Instance 1 hash:" + instance1.hashCode());
+        m_logger.info("Instance 2 hash:" + instance2.hashCode());
         Assert.assertEquals("hash:", instance1.hashCode(),instance2.hashCode());
-       // System.out.println("Instance 1 hash:" + instance1.hashCode());
-       // System.out.println("Instance 2 hash:" + instance2.hashCode());
     }
 
 
@@ -42,9 +44,9 @@ public class SingletonTester {
         }*/
 
         //now lets check the hash key.
-       // System.out.println("Instance 1 hash:" + instance1.hashCode());
-        //System.out.println("Instance 2 hash:" + instance2.hashCode());
-        Assert.assertNotEquals("hash:", instance1.hashCode(),instance2.hashCode());
+        m_logger.info("Instance 1 hash:" + instance1.hashCode());
+        m_logger.info("Instance 2 hash:" + instance2.hashCode());
+        Assert.assertEquals("hash:", instance1.hashCode(),instance2.hashCode());
     }
 
     @Test
@@ -54,7 +56,7 @@ public class SingletonTester {
             @Override
             public void run() {
                 SingletonClass instance1 = SingletonClass.getInstance();
-                System.out.println("Instance 1 hash:" + instance1.hashCode());
+                m_logger.info("Instance 1 hash:" + instance1.hashCode());
             }
         });
 
@@ -63,13 +65,14 @@ public class SingletonTester {
             @Override
             public void run() {
                 SingletonClass instance2 = SingletonClass.getInstance();
-                System.out.println("Instance 2 hash:" + instance2.hashCode());
+                m_logger.info("Instance 2 hash:" + instance2.hashCode());
             }
         });
 
         //start both the threads
         t1.start();
         t2.start();
+
     }
 
     //For Singleton most of the time Serialization not required
@@ -88,8 +91,9 @@ public class SingletonTester {
             SingletonClass instance2 = (SingletonClass) in.readObject();
             in.close();
 
-            System.out.println("instance1 hashCode=" + instance1.hashCode());
-            System.out.println("instance2 hashCode=" + instance2.hashCode());
+            m_logger.info("instance1 hashCode=" + instance1.hashCode());
+            m_logger.info("instance2 hashCode=" + instance2.hashCode());
+            Assert.assertEquals("hash:", instance1.hashCode(),instance2.hashCode());
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -106,9 +110,9 @@ public class SingletonTester {
             SingletonClass instance2 = (SingletonClass)instance1.clone();
 
 
-            System.out.println("instance1 hashCode=" + instance1.hashCode());
-            System.out.println("instance2 hashCode=" + instance2.hashCode());
-
+            m_logger.info("instance1 hashCode=" + instance1.hashCode());
+            m_logger.info("instance2 hashCode=" + instance2.hashCode());
+            Assert.assertEquals("hash:", instance1.hashCode(),instance2.hashCode());
         } catch (Exception e) {
             e.printStackTrace();
         }
