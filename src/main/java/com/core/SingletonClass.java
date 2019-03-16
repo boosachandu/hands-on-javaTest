@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 import java.io.Serializable;
 
 public class SingletonClass extends Super implements Serializable,Cloneable{
-    private static Logger m_logger = Logger.getLogger(SingletonClass.class.getName());
+    private static Logger logger = Logger.getLogger(SingletonClass.class.getName());
     //  eager initialization causes memory leaks
     //  eager initialization
     //private static volatile SingletonClass sSoleInstance = new SingletonClass();

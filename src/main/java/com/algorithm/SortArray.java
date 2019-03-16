@@ -1,10 +1,12 @@
-package com.algoritham;
+package com.algorithm;
 
 import lombok.ToString;
 
+import java.util.logging.Logger;
+
 @ToString
 public class SortArray {
-
+    private static Logger logger = Logger.getLogger(SortArray.class.getName());
     private static int[] intArray = {5, 2, 4, 6, 1, 3};
     public static void main(String[] args){
         int key;
@@ -24,6 +26,8 @@ public class SortArray {
                  intArray[i + 1] = key;
              }
         }
-        System.out.println(intArray);
+        for (int element: intArray) {
+            logger.info("element: "+element);
+        }
     }
 }
