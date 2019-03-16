@@ -14,7 +14,6 @@ public class SingletonClass extends Super implements Serializable,Cloneable{
     //private constructor.
     // Suppresses default constructor, ensuring non-instantiability.
     private SingletonClass() {
-
         //Ensuring the Single instance creation from reflection api.
         if (sSoleInstance != null) {
             throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
