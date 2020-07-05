@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hands-on-java.iml" filepath="$PROJECT_DIR$/.idea/modules/hands-on-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hands-on-java.iml" filepath="$PROJECT_DIR$/.idea/modules/hands-on-java.iml" group="hands-on-java" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/hands-on-java_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hands-on-java_main.iml" group="hands-on-java" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/hands-on-java_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hands-on-java_test.iml" group="hands-on-java" />
     </modules>
