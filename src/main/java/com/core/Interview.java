@@ -31,7 +31,7 @@ public class Interview {
         int x=14;
         int y=x-- - --x;
 
-        System.out.println(y);
+        System.out.println("y = "+y);
 
         List<Integer> integerList = new ArrayList<>();
         integerList.add(5);
