@@ -38,7 +38,7 @@ public class Interview {
         integerList.add(2);
         integerList.add(6);
 
-        System.out.println(integerList);
+        System.out.println("integerList"+integerList);
 
         integerList.remove(2);
         System.out.println(integerList);
