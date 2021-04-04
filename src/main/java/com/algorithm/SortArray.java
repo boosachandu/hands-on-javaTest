@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 @ToString
 public class SortArray {
     private static Logger logger = Logger.getLogger(SortArray.class.getName());
-    private static int[] intAscendingArray = {5, 2, 4, 6, 1, 3};
-    private static int[] intDescendingArray = {31, 41, 59, 26, 41, 58};
+    private static final int[] intAscendingArray = {5, 2, 4, 6, 1, 3};
+    private static final int[] intDescendingArray = {31, 41, 59, 26, 41, 58};
 
     public static void main(String[] args) {
         sortArrayAscendingOrderWithWhileLoop(intAscendingArray);
