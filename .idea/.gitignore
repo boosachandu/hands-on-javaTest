@@ -1,2 +1,6 @@
 # Default ignored files
 /workspace.xml
+/modules/hands-on-java.main.iml
+/modules/hands-on-java.test.iml
+/jarRepositories.xml
+/libraries-with-intellij-classes.xml
