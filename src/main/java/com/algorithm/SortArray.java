@@ -2,6 +2,7 @@ package com.algorithm;
 
 import lombok.ToString;
 
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 @ToString
@@ -9,12 +10,14 @@ public class SortArray {
     private static Logger logger = Logger.getLogger(SortArray.class.getName());
     private static final int[] intAscendingArray = {5, 2, 4, 6, 1, 3};
     private static final int[] intDescendingArray = {31, 41, 59, 26, 41, 58};
+    private static final int[] intAscendingArray2 = {5, 2, 4, 6, 1, 3};
 
     public static void main(String[] args) {
         sortArrayAscendingOrderWithWhileLoop(intAscendingArray);
         sortArrayAscendingOrderWithForLoop(intAscendingArray);
         sortArrayDescendingOrder(intDescendingArray);
         linearSearch(intAscendingArray, 8);
+        sortArrayAscendingOrder(intAscendingArray2);
     }
 
     private static void sortArrayAscendingOrderWithWhileLoop(int[] intArray) {
@@ -74,5 +77,25 @@ public class SortArray {
         }
         logger.info(indexMatch);
         return indexMatch;
+    }
+
+    //simple way
+    private static void sortArrayAscendingOrder(int[] array) {
+        System.out.println("Simple way");
+        int key;
+        int i;
+        int[] sortedArray = Arrays.copyOf(array, array.length);
+
+        for (int j = 1; j < sortedArray.length; j++) {
+            key = sortedArray[j];
+            i = j - 1;
+            while (i > -1 && sortedArray[i] > key) {
+                sortedArray[i + 1] = sortedArray[i];
+                sortedArray[i] = key;
+                i = i - 1;
+            }
+        }
+
+        System.out.println(Arrays.toString(sortedArray));
     }
 }
